@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+
+import { useForm } from "react-hook-form";
 
 const SearchBar = () => {
-    return (
-        <div>
-            <form action=""></form>
+  const { register, handleSubmit } = useForm();
+  //   const onSubmit = (data) => alert(JSON.stringify(data));
+  return (
+    <div className="ui segment">
+      <form className="ui form" onSubmit={handleSubmit}>
+        <div className="field">
+          <label> Image Search</label>
+          {/* <input {...register("search image")} placeholder="search image" /> */}
+ 
+          <input type="text" />
         </div>
-    )
-}
+      </form>
+    </div>
+  );
+};
 
-export default SearchBar
+export default SearchBar;
