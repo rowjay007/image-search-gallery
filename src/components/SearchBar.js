@@ -17,16 +17,16 @@ const SearchBar = () => {
           <label> Image Search</label>
           <input
             {...register("searchImage", {
-              required: true,
-              pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+              required: "Please insert text",
+              pattern: {
+                value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                message: "You didn't insert message",
+              },
             })}
             type="text"
             placeholder="search image"
           />
-
-          {errors.searchImage && errors.searchImage.type === "required" && (
-            <span>This field is required</span>
-          )}
+          {errors.searchImage && <p>{errors.email.message}</p>}
         </div>
       </form>
     </div>
