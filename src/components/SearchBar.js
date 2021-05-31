@@ -1,15 +1,6 @@
 import { React, useState } from "react";
 
-// import { useForm } from "react-hook-form";
-
 const SearchBar = ({ onSearchSubmit }) => {
-  // const {
-  //   register,
-  //   handleSubmit,
-
-  //   formState: { errors },
-  // } = useForm();
-  // const onSubmit = (data) => console.log(data);
   const [search, setSearch] = useState("");
 
   const onHandleSubmit = (e) => {
@@ -28,9 +19,6 @@ const SearchBar = ({ onSearchSubmit }) => {
           <input
             value={search}
             onChange={handleChange}
-            // {...register("searchImage", {
-            //   required: true,
-            // })}
             type="text"
             placeholder="search image"
           />
