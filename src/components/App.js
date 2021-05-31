@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import axios from "axios";
 import SearchBar from "./SearchBar";
 import "semantic-ui-css/semantic.min.css";
@@ -6,14 +8,16 @@ import "semantic-ui-css/semantic.min.css";
 // access key = ""
 
 function App() {
-  const onSearchSubmit = (e) => {
-    axios.get("https://api.unsplash.com/search/photos", {
+  const [images, setImages] = useState([]);
+  const onSearchSubmit = async (e) => {
+    const response = await axios.get("https://api.unsplash.com/search/photos", {
       params: { query: e },
       headers: {
         Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`,
       },
     });
-    console.log(e);
+    setImages(response.data.results);
+    console.log(response.data.results);
   };
   return (
     <div className="ui container" style={{ marginTop: "10px" }}>
