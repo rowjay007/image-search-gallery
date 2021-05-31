@@ -4,7 +4,7 @@ import "semantic-ui-css/semantic.min.css";
 
 function App() {
   return (
-    <div className="ui container">
+    <div className="ui container" style={{marginTop: "10px"}}>
       <SearchBar />
     </div>
   );

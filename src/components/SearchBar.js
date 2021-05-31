@@ -7,26 +7,26 @@ const SearchBar = () => {
     register,
     handleSubmit,
 
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
+
+  // const handleChange = (e) => {
+  //   console.log(e.target.value);
+  // };
   return (
     <div className="ui segment">
       <form className="ui form" onSubmit={handleSubmit(onSubmit)}>
         <div className="field">
           <label> Image Search</label>
           <input
+            // onChange={handleChange}
             {...register("searchImage", {
-              required: "Please insert text",
-              pattern: {
-                value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                message: "You didn't insert message",
-              },
+              required: true,
             })}
             type="text"
             placeholder="search image"
           />
-          {errors.searchImage && <p>{errors.email.message}</p>}
         </div>
       </form>
     </div>
