@@ -1,29 +1,36 @@
-import React from "react";
+import { React, useState } from "react";
 
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 
-const SearchBar = () => {
-  const {
-    register,
-    handleSubmit,
+const SearchBar = ({ onSearchSubmit }) => {
+  // const {
+  //   register,
+  //   handleSubmit,
 
-    // formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  //   formState: { errors },
+  // } = useForm();
+  // const onSubmit = (data) => console.log(data);
+  const [search, setSearch] = useState("");
 
-  // const handleChange = (e) => {
-  //   console.log(e.target.value);
-  // };
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    onSearchSubmit(search);
+  };
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
   return (
     <div className="ui segment">
-      <form className="ui form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="ui form" onSubmit={onHandleSubmit}>
         <div className="field">
           <label> Image Search</label>
           <input
-            // onChange={handleChange}
-            {...register("searchImage", {
-              required: true,
-            })}
+            value={search}
+            onChange={handleChange}
+            // {...register("searchImage", {
+            //   required: true,
+            // })}
             type="text"
             placeholder="search image"
           />
