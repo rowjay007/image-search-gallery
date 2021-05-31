@@ -1,17 +1,13 @@
 import { useState } from "react";
-
-import axios from "axios";
 import SearchBar from "./SearchBar";
 import "semantic-ui-css/semantic.min.css";
+import api from "../Data/api";
 
 function App() {
   const [images, setImages] = useState([]);
   const onSearchSubmit = async (e) => {
-    const response = await axios.get("https://api.unsplash.com/search/photos", {
+    const response = await api.get("/search/photos", {
       params: { query: e },
-      headers: {
-        Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`,
-      },
     });
     setImages(response.data.results);
   };
