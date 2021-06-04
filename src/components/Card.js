@@ -10,15 +10,14 @@
 
 // export default Card;
 
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class Card extends Component {
-    render() {
-        return (
-          <div>
-             <img src={this.props.image.urls} alt={this.props.image.description} />
-          </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <img src={this.props.image.urls.regular} alt={this.props.image.description} />
+      </div>
+    );
+  }
 }
-
