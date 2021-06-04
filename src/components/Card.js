@@ -1,9 +1,12 @@
 import React from "react";
 
 const Card = ({ image, urls, description }) => {
+  const imageRef = React.createRef()
+
+
   return (
     <div>
-      <img src={image.urls.regular} alt={image.description} />
+      <img ref={imageRef} src={image.urls.regular} alt={image.description} />
     </div>
   );
 };
