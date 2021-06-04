@@ -1,10 +1,14 @@
-import React from "react";
+// import Card from "./Card";
+import "./Gallery.css";
 
 const Gallery = ({ images }) => {
-  const Images = images.map(({ description, id, urls }) => {
-    return <img alt={description} key={id} src={urls.regular} />;
-  });
-  return <div>{Images}</div>;
+  return (
+    <div className="image-list">
+      {images.map(({ description, id, urls }) => {
+        return <img key={id} src={urls.regular} alt={description} />;
+      })}
+    </div>
+  );
 };
 
 export default Gallery;
