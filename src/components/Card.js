@@ -24,6 +24,8 @@
 // export default Card;
 
 import React, { Component } from "react";
+import styled from 'styled-components'
+
 class Card extends Component {
   constructor(props) {
     super();
@@ -32,6 +34,7 @@ class Card extends Component {
     this.imageRef = React.createRef();
   }
 
+  
   componentDidMount() {
     this.imageRef.current.addEventListener("load", this.setSpans);
   }
@@ -41,11 +44,16 @@ class Card extends Component {
     const spans = Math.ceil(height / 10);
     this.setState({ spans });
   };
+  
   render() {
+    const CardList = styled.img`
+      width: 250px;
+      grid-row-end: span 2;
+    `;
     const { description, urls } = this.props.image;
     return (
       <div style={{ gridRow: `span ${this.state.spans}` }}>
-        <img ref={this.imageRef} src={urls.regular} alt={description} />
+        <CardList ref={this.imageRef} src={urls.regular} alt={description} />
       </div>
     );
   }
