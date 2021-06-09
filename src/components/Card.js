@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import styled from "styled-components";
+import { CardList } from "./CardStyled";
+
 
 const Card = ({ image, urls, description }) => {
+
   const imageRef = useRef();
   const [span, setSpans] = useState(0);
 
+  
   useEffect(() => {
     const ImageHandle = () => {
       const height = imageRef.current.clientHeight;
@@ -14,10 +17,7 @@ const Card = ({ image, urls, description }) => {
 
     imageRef.current.addEventListener("load", ImageHandle);
   }, []);
-  const CardList = styled.img`
-    width: 250px;
-    grid-row-end: span 3;
-  `;
+  
   return (
     <div style={{ gridRow: `span ${span}` }}>
       <CardList
