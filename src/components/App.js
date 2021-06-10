@@ -6,7 +6,6 @@ import Gallery from "./Gallery";
 import { ImageContext } from "./ImageProvider";
 
 function App() {
-  // const [images, setImages] = useState([]);
   const {setImages} = useContext(ImageContext);
   const onSearchSubmit = async (e) => {
     const response = await api.get("/search/photos", {
