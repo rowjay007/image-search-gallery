@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
 import SearchBar from "./SearchBar";
 import "semantic-ui-css/semantic.min.css";
 import api from "../Data/api";
 import Gallery from "./Gallery";
+import { ImageContext } from "./ImageProvider";
 
 function App() {
-  const [images, setImages] = useState([]);
+  // const [images, setImages] = useState([]);
+  const {setImages} = useContext(ImageContext);
   const onSearchSubmit = async (e) => {
     const response = await api.get("/search/photos", {
       params: { query: e },
@@ -15,7 +17,7 @@ function App() {
   return (
     <div className="ui container" style={{ marginTop: "10px" }}>
       <SearchBar onSearchSubmit={onSearchSubmit} />
-      <Gallery images={images} />
+      <Gallery />
     </div>
   );
 }

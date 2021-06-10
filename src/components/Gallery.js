@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import Card from "./Card";
 import { ImageProp } from "./GalleryStyle";
+import { ImageContext } from "./ImageProvider";
 
-const Gallery = ({ images }) => {
+const Gallery = () => {
+  const { images } = useContext(ImageContext);
+
   return (
     <ImageProp>
       {images.map((image) => {
