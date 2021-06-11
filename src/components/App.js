@@ -1,20 +1,16 @@
 import { useContext } from "react";
 import SearchBar from "./SearchBar";
 import "semantic-ui-css/semantic.min.css";
-// import api from "./api";
 import Gallery from "./Gallery";
+import api from "./api";
 import { ImageContext } from "./ImageProvider";
-import axios from "axios";
 require("dotenv").config();
 
 function App() {
-  const {setImages} = useContext(ImageContext);
+  const { setImages } = useContext(ImageContext);
   const onSearchSubmit = async (e) => {
-    const res = await axios.get("https://api.unsplash.com/search/photos", {
+    const res = await api.get("/search/photos", {
       params: { query: e },
-      headers: {
-        Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`,
-      },
     });
     setImages(res.data.results);
   };
