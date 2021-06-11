@@ -13,7 +13,7 @@ function App() {
     const res = await axios.get("https://api.unsplash.com/search/photos", {
       params: { query: e },
       headers: {
-        Authorization: "Client-ID nweoVxPQdGa-w6qfhXvzt2CQh5SH71OzWpReN77Zb7I",
+        Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`,
       },
     });
     setImages(res.data.results);
